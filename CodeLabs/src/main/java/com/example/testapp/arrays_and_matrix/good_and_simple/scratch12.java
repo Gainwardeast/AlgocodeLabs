@@ -1,9 +1,9 @@
-package com.example.testapp.arrays_and_matrix;
+package com.example.testapp.arrays_and_matrix.good_and_simple;
 
 import java.util.Arrays;
 import java.util.List;
 
-class Scratch1 {
+class Scratch2 {
     public static void main(String[] args) {
         List<Integer> nums = Arrays.asList(1, 8, 7, 15, 21, 22, 1, 7, 2);
 

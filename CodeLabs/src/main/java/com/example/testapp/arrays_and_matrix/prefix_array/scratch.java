@@ -2,11 +2,12 @@ package com.example.testapp.arrays_and_matrix.prefix_array;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Scratch11 {
     public static void main(String[] args) {
-        
+        doSomething(Arrays.asList(1, 4, 5, -3, 7, 2), 3, 5);
     }
 
     /**
@@ -14,22 +15,35 @@ class Scratch11 {
      * которая позволяет быстро находить сумму всех
      * элементов на отрезке [l, r] (включая границы).
      * При этом массив не изменяется.
-     *
+     * <p>
      * Другими словами, нужно реализовать:
-     *
-     *     Конструктор (вызывается один раз).
-     *     Метод sum (вызывается многократно, поэтому он должен быть максимально быстрым).
+     * <p>
+     * Конструктор (вызывается один раз).
+     * Метод sum (вызывается многократно, поэтому он должен быть максимально быстрым).
+     * <p>
+     * Ввод: nums = [1, 4, 5, -3, 7, 2]
+     * l = 0, r = 2
+     * l = 0, r = 5
+     * l = 3, r = 5
+     * <p>
+     * Вывод:
+     * 10
+     * 16
+     * 6
      */
 
-    class SuperClass{
-        List<Integer> nums = new ArrayList<>();
-        List<Integer> preSum = new ArrayList<>();
-        SuperClass(List<Integer> nums){
-            nums.addAll(nums);
+    static void doSomething(List<Integer> nums, int left, int right) {
+        List<Integer> sums = new ArrayList<>();
+        int p1 = 0;
+        int sum = 0;
+        while (p1 < nums.size()) {
+            sum += nums.get(p1);
+            sums.add(sum);
+            p1++;
         }
-
-        void sum(int left, int right){
-
-        }
+        System.out.println("result");
+        int sumresult = sums.get(right) - sums.get(left);
+        System.out.println("sumresult "+ sumresult);
     }
+
 }
