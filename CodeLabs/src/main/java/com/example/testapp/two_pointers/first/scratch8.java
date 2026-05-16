@@ -1,10 +1,10 @@
-package com.example.testapp.two_pointers;
+package com.example.testapp.two_pointers.first;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class Scratch91 {
+class Scratch8 {
     public static void main(String[] args) {
         Character[] before = {'a', ' ', ' ', 'b', ' ', 'c', ' ', ' ', ' '};
         //Character[] before = {' ', ' ', ' ', ' '};
@@ -47,15 +47,16 @@ class Scratch91 {
             System.out.println("characters.get(fast) [" + characters.get(fast) + "]");
             System.out.println("characters.get(slow) [" + characters.get(slow) + "]");
 
-            if (characters.get(fast) == ' ') {
-                spaces++;
-            } else {
+            if (characters.get(fast) != ' ') {
                 spaces = 0;
+            } else {
+                spaces++;
             }
             System.out.println("spaces " + spaces);
 
             if (spaces <= 1) {
                 Collections.swap(characters, slow, fast);
+                System.out.println("swap ");
                 slow++;
             }
 

@@ -1,4 +1,4 @@
-package com.example.testapp.two_pointers;
+package com.example.testapp.two_pointers.first;
 
 
 class Scratch4 {

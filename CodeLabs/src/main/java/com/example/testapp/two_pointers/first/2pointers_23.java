@@ -1,11 +1,11 @@
-package com.example.testapp.two_pointers;
+package com.example.testapp.two_pointers.first;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-class Scratch9 {
+class Scratch6 {
     public static void main(String[] args) {
         // nums1 = [-3,2,2,5,8,19,31],
         // nums2 = [1,2,2,2,6,19,52]4
@@ -18,7 +18,7 @@ class Scratch9 {
 
         System.out.println(doSomething(nums1, nums2));
     }
-    
+
     /*
         Даны два массива nums1 и nums2, отсортированные по возрастанию.
 
