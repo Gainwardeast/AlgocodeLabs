@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Task1 {
+public class Task11 {
     /*
     * Сортировка элементов в квадрате
     Дан массив nums, отсортированный в неубывающем порядке.
