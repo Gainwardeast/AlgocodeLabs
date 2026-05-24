@@ -1,4 +1,4 @@
-package com.example.testapp.two_pointers;
+package com.example.testapp.two_pointers.first;
 
 class Scratch12 {
     public static void main(String[] args) {
