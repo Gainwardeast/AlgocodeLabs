@@ -8,6 +8,7 @@ class Scratch1 {
         List<Integer> nums = Arrays.asList(1, 8, 7, 15, 21, 22, 1, 7, 2);
 
 
+
         doSomething(nums);
     }
 

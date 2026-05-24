@@ -10,6 +10,9 @@ class Scratch11 {
         doSomething(Arrays.asList(1, 4, 5, -3, 7, 2), 3, 5);
     }
 
+    // 1, 4, 5, -3, 7, 2
+    // 1, 5, 10, 7, 14, 16
+
     /**
      * Реализуй структуру данных,
      * которая позволяет быстро находить сумму всех
@@ -34,6 +37,7 @@ class Scratch11 {
 
     static void doSomething(List<Integer> nums, int left, int right) {
         List<Integer> sums = new ArrayList<>();
+        sums.add(0);
         int p1 = 0;
         int sum = 0;
         while (p1 < nums.size()) {
@@ -42,7 +46,7 @@ class Scratch11 {
             p1++;
         }
         System.out.println("result");
-        int sumresult = sums.get(right) - sums.get(left);
+        int sumresult = sums.get(right+1) - sums.get(left);
         System.out.println("sumresult "+ sumresult);
     }
 
