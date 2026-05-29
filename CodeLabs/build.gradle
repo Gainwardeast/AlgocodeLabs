@@ -5,6 +5,13 @@ plugins {
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
+// ===== ДОБАВЬТЕ ЭТОТ БЛОК =====
+java {
+    sourceCompatibility = '17'  // или '11', '19', '20'
+    targetCompatibility = '17'
+}
+// ================================
+
 repositories {
     mavenCentral()
 }
