@@ -1,4 +1,4 @@
-package com.example.testapp.hash_table;
+package com.example.testapp.hash_table.first;
 
 class ScratchHashMap2 {
     public static void main(String[] args) {

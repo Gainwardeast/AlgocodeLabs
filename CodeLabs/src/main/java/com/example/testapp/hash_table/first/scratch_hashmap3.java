@@ -1,4 +1,4 @@
-package com.example.testapp.hash_table;
+package com.example.testapp.hash_table.first;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-class Scratch44 {
+class Scratch33 {
     public static void main(String[] args) {
         // strs = [];
         // List<String> strings = Arrays.asList("ab", "bat", "ba", "tab", "ear", "apt");

@@ -1,4 +1,4 @@
-package com.example.testapp.hash_table;
+package com.example.testapp.hash_table.first;
 
 import java.util.ArrayList;
 import java.util.Arrays;
