@@ -1,6 +1,11 @@
 
 package com.example.testapp.two_pointers.second;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class Task44 {
     /*
         Сжатие пробелов
@@ -22,30 +27,29 @@ public class Task44 {
     * */
 
     public static void main(String[] args) {
-        String target = "deeee";
+        List<Character> target = Arrays.asList('a', ' ', ' ', 'b', ' ', 'c', ' ', ' ', ' ');
         System.out.println(target);
-        System.out.println("findCommonPrefix -> " + makeTask(target));
+
+        makeTask(target);
     }
 
-    static boolean makeTask(String target) {
+    static void makeTask(List<Character> characters) {
 
-        int p1 = 0;
-        int p2 = target.length() - 1;
-        int countOfChanges = 0;
-        while (p1 < p2) {
-            if (target.charAt(p1) != target.charAt(p2)) {
-                countOfChanges++;
+        int fast = 0;
+        int slow = 0;
+
+        // Ввод: chars = ['a', ' ', ' ', 'b', ' ', 'c', ' ', ' ', ' ']
+        // Ввод: chars = ['a', ' ', 'b', ' ', ' ', 'c', ' ', ' ', ' ']
+        while (fast < characters.size()){
+            System.out.println("fast -> " + fast + " slow -> " + slow );
+            if(characters.get(slow) == ' ' && characters.get(fast) != ' ' ){
+                Collections.swap(characters, fast, slow);
             }
-            if (target.charAt(p1+1) == target.charAt(p2)) {
-                p1++;
+            if(characters.get(fast) == ' '){
+                slow = fast;
             }
-            if (target.charAt(p1) == target.charAt(p2-1)) {
-                p2--;
-            }
-            p1++;
-            p2--;
+            System.out.println("characters -> " + characters);
+            fast++;
         }
-        System.out.println(countOfChanges);
-        return countOfChanges <= 1;
     }
 }
