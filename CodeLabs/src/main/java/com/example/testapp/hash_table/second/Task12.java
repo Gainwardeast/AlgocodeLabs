@@ -55,16 +55,17 @@ class Task12 {
         int commonCount = 0;
         for (int p1 = 0; p1 < nums1.size(); p1++) {
             int nums1Number = nums1.get(p1);
-            int nums2Number = nums2.get(p1);
             commonNumbers.put(nums1Number, commonNumbers.getOrDefault(nums1Number, 0) + 1);
             if (commonNumbers.get(nums1Number) == 2) {
                 commonCount++;
             }
 
+            int nums2Number = nums2.get(p1);
             commonNumbers.put(nums2Number, commonNumbers.getOrDefault(nums2Number, 0) + 1);
             if (commonNumbers.get(nums2Number) == 2) {
                 commonCount++;
             }
+
 
             nums3.add(commonCount);
         }
