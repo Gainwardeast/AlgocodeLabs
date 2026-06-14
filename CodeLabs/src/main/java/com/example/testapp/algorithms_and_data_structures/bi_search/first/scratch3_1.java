@@ -1,4 +1,4 @@
-package com.example.testapp.algorithms_and_data_structures.bi_search;
+package com.example.testapp.Algorithms_and_data_structures.bi_search.first;
 
 import java.util.Arrays;
 import java.util.List;
