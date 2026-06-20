@@ -1,4 +1,4 @@
-package com.example.testapp.Algorithms_and_data_structures.bi_search.second;
+package com.example.testapp.algorithms_and_data_structures.search_first_last.second;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,18 +31,40 @@ class Task4 {
     }
 
     private static void makeTask(List<Integer> nums, int target) {
+
+        findFirstPosition(nums, target);
+        findLastPosition(nums, target);
+
+        System.out.println("finish");
+    }
+
+    private static void findLastPosition(List<Integer> nums, int target) {
         int p1 = 0;
         int p2 = nums.size() - 1;
         while ((p2 - p1) > 1) {
             int m = (p1 + p2) / 2;
-            if(nums.get(m) < target){
+            System.out.println(m + "-" + nums.get(m));
+            if (nums.get(m) <= target) {
                 p1 = m;
             } else {
                 p2 = m;
             }
         }
+        System.out.println("last position " + p1);
+    }
 
-
-        System.out.println("finish");
+    private static void findFirstPosition(List<Integer> nums, int target) {
+        int p1 = 0;
+        int p2 = nums.size() - 1;
+        while ((p2 - p1) > 1) {
+            int m = (p1 + p2) / 2;
+            System.out.println(m + "-" + nums.get(m));
+            if (nums.get(m) < target) {
+                p1 = m;
+            } else {
+                p2 = m;
+            }
+        }
+        System.out.println("first position " + p2);
     }
 }
