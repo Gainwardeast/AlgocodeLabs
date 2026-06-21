@@ -35,14 +35,16 @@ class Task8 {
         //   * [5,6,9,7,5,-1,8,11,2]
         //   * [1,1,5,3,2,1,1,0,0]
         Stack<Integer> numsStack = new Stack<>();
-        Integer[] result = new Integer[nums.size()];
+        int[] result = new int[nums.size()];
 
         for (int p1 = 0; p1 < nums.size(); p1++) {
-            while(!numsStack.isEmpty() && nums.get(p1) < nums.get(numsStack.peek()) ){
-                result[numsStack.peek()] = p1 - numsStack.pop();
+            while(!numsStack.isEmpty()){
+                if(nums.get(p1) > nums.get(numsStack.peek()) ){
+                    result[numsStack.peek()] = p1 - numsStack.pop();
+                } else break;
             }
             numsStack.push(p1);
         }
-        System.out.println(Arrays.stream(result).toList());
+        System.out.println(result);
     }
 }
