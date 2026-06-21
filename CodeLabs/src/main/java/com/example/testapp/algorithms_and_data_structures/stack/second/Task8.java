@@ -37,14 +37,38 @@ class Task8 {
         Stack<Integer> numsStack = new Stack<>();
         int[] result = new int[nums.size()];
 
+
         for (int p1 = 0; p1 < nums.size(); p1++) {
-            while(!numsStack.isEmpty()){
-                if(nums.get(p1) > nums.get(numsStack.peek()) ){
-                    result[numsStack.peek()] = p1 - numsStack.pop();
-                } else break;
+            System.out.println("=============for================");
+            System.out.println("main index = " + p1);
+            System.out.println("nums.get(p1) " + nums.get(p1));
+            while (!numsStack.isEmpty()) {
+                System.out.println("++++++++++while++++++++++++");
+                System.out.println("nums.get(numsStack.peek()) " + nums.get(numsStack.peek()));
+                System.out.println("numsStack -> " + numsStack);
+                if (nums.get(numsStack.peek()) < nums.get(p1)) {
+                    Integer index = numsStack.peek();
+                    System.out.println("numsStack.peek() " + index);
+                    int value = p1 - numsStack.pop();
+                    System.out.println("p1 - numsStack.pop() " + value);
+                    result[index] = value;
+                    printResult(result);
+                } else {
+                    System.out.println("==============break===============");
+                    break;
+                }
             }
             numsStack.push(p1);
         }
-        System.out.println(result);
+
+        printResult(result);
+    }
+
+    private static void printResult(int[] result) {
+        List<Integer> resultList = new ArrayList<>();
+        for (int i : result) {
+            resultList.add(i);
+        }
+        System.out.println(resultList);
     }
 }
