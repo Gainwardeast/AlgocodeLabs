@@ -1,4 +1,4 @@
-package com.example.testapp.algorithms_and_data_structures.linked_list;
+package com.example.testapp.algorithms_and_data_structures.linked_list.first;
 
 class Scratch2 {
     public static void main(String[] args) {

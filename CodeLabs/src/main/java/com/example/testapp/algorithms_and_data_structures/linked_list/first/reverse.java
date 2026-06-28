@@ -1,4 +1,4 @@
-package com.example.testapp.algorithms_and_data_structures.bi_search.linked_list;
+package com.example.testapp.algorithms_and_data_structures.linked_list.first;
 
 class Scratch {
     public static void main(String[] args) {
@@ -52,9 +52,12 @@ class Scratch {
         // 5 4 3 2 1
 
         Node previousBrick = null;
+        Node nextBrick = null;
         Node currentBrick = headNode;
-        while (currentBrick != null){
-            Node nextBrick = currentBrick.getNext();
+        while (currentBrick != null){ // 3
+            // 3 2 1 4 5
+            // сохранить в переменную след узел
+            nextBrick = currentBrick.getNext();
             currentBrick.setNext(previousBrick);
             previousBrick = currentBrick;
             currentBrick = nextBrick;
@@ -89,4 +92,12 @@ class Scratch {
             this.next = next;
         }
     }
+
+    //    nextBrick = currentBrick.getNext(); // 4
+    //  // затереть след-й узел узлом пред-м
+    //  currentBrick.setNext(previousBrick); // 2
+    //  // в качестве пред-го узла теперь встанет текущий
+    //  previousBrick = currentBrick; // 3
+    //  // текущим узлом назначен след-й узел из кэша
+    //  currentBrick = nextBrick; // 4
 }

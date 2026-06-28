@@ -42,7 +42,7 @@ class Task8copy1 {
             while (!numsStack.isEmpty()) {
                 if (nums.get(numsStack.peek()) < nums.get(p1)) {
 
-                    result[numsStack.peek()] = p1 - numsStack.peek();
+                    result[numsStack.peek()] = p1 - numsStack.pop();
                 } else {
                     break;
                 }
