@@ -27,6 +27,17 @@ public class task9 {
     * */
 
     private static void doSomething(List<Integer> nums) {
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+        int max1 = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
+        for(int number: nums){
+            min1 = Math.min(min1, number);
+            min2 = Math.min(min1, number);
+            min1 = Math.min(min1, number);
+            min1 = Math.min(min1, number);
+        }
+
 
         System.out.println("finish");
     }
