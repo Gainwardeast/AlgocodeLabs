@@ -5,7 +5,7 @@ import java.util.List;
 
 public class task9 {
     public static void main(String[] args) {
-        List<Integer> nums = Arrays.asList(2,-6,-4,10,-5);
+        List<Integer> nums = Arrays.asList(3, 10, 1, 7, 2);
 
         doSomething(nums);
     }
@@ -27,15 +27,32 @@ public class task9 {
     * */
 
     private static void doSomething(List<Integer> nums) {
+        int result = 0;
         int min1 = Integer.MAX_VALUE;
         int min2 = Integer.MAX_VALUE;
         int max1 = Integer.MIN_VALUE;
         int max2 = Integer.MIN_VALUE;
-        for(int number: nums){
-            min1 = Math.min(min1, number);
-            min2 = Math.min(min1, number);
-            min1 = Math.min(min1, number);
-            min1 = Math.min(min1, number);
+        // 2,-6,-4,10,-5
+        for (int number : nums) {
+            if (number < min1) {
+                min2 = min1;
+                min1 = number;
+            } else if (number < min2 && number > min1) {
+                min2 = number;
+            }
+
+            if (number > max1) {
+                max2 = max1;
+                max1 = number;
+            } else if (number > max2 && number < max1) {
+                max2 = number;
+            }
+        }
+
+        if (min1 < 0 && max1 > 0) {
+            result = min1 * max1;
+        } else if (min1 > 0) {
+            result = min1 * min2;
         }
 
 
