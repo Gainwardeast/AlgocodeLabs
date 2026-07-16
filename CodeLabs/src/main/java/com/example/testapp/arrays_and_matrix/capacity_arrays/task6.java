@@ -1,15 +1,12 @@
 package com.example.testapp.arrays_and_matrix.capacity_arrays;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class task6 {
-    public static void main(String[] args) {
-        List<Integer> nums = Arrays.asList(1, 2, 5, 7);
 
-        doSomething(nums, 7);
-    }
 
     /*
         Последовательность с суммой K
@@ -33,21 +30,58 @@ public class task6 {
         так как она встретилась раньше.
     * */
 
-    private static void doSomething(List<Integer> nums, int sum) {
-        int resultIndex = 0;
-        List<Integer> numsSum = new ArrayList<>();
-        numsSum.add(0);
-        for (int p = 0; p < nums.size(); p++) {
-            numsSum.add(nums.get(p) + numsSum.get(p - 1));
-        }
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 2, 5, 7);
 
-        for (int p = (numsSum.size()-1); p > 0; p--) {
-            if(numsSum.get(p) - numsSum.get(0) == sum){
+        doSomething(nums, 7);
+    }
+
+//    private static void doSomething(List<Integer> nums, int sum) {
+//        int sequenceEnd = -1;
+//        int sequenceStart = -1;
+//        int resultIndex = -1;
+//        List<Integer> numsSum = new ArrayList<>();
+//        numsSum.add(0);
+//        for (int p = 1; p < nums.size(); p++) {
+//            numsSum.add(nums.get(p) + numsSum.get(p - 1));
+//        }
+//
+//        for (int p = 0; p < numsSum.size(); p++) {
+//            if(numsSum.get(p) >= sum){
+//                sequenceEnd = p;
+//                break;
+//            }
+//        }
+//
+//        for(int numSum: numsSum){
+//            if((numsSum.get(sequenceEnd) - numSum) == sum){
+//                sequenceStart = numsSum.indexOf(numSum);
+//            }
+//        }
+//
+//        if(sequenceStart != -1 && sequenceEnd != -1){
+//            resultIndex = sequenceEnd;
+//        }
+//
+//        System.out.println("result is " + resultIndex);
+//    }
+
+    private static void doSomething(List<Integer> nums, int targetSum) {
+        Map<Integer, Integer> prefixMap = new HashMap<>();
+        prefixMap.put(0, -1);
+
+        int resultIndex = -1;
+        int currentSum = 0;
+        for (int p = 0; p < nums.size(); p++) {
+            currentSum = currentSum + nums.get(p);
+            prefixMap.putIfAbsent(currentSum, p);
+
+            if (prefixMap.containsKey(currentSum - targetSum)) {
                 resultIndex = p;
                 break;
             }
         }
 
-        System.out.println("finish");
+        System.out.println("result is " + resultIndex);
     }
 }
