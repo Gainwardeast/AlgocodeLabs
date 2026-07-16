@@ -1,4 +1,4 @@
-package com.example.testapp.algorithms_and_data_structures.search_first_last.second;
+package com.example.testapp.Algorithms_and_data_structures.search_first_last.second;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,10 +29,10 @@ public class task5 {
      * Объяснение: 4 > 2, поэтому берем [2,3,3], а не [3,3,4]
      */
     public static void main(String[] args) {
-        List<Integer> before = Arrays.asList(1, 3, 5, 6, 8, 9);
+        List<Integer> before = Arrays.asList(2,3,3,4,5,6,7);
         System.out.println(before);
 
-        makeTask(before, 2, 3);
+        makeTask(before, 3, 3);
     }
 
     private static void makeTask(List<Integer> nums, int target, int count) {
@@ -52,18 +52,18 @@ public class task5 {
             }
         }
 
-//        p1 = targetPosition - 1;
-//        p2 = targetPosition + 1;
-//
-//        while(resultList.size() < count){
-//            if(p1 >=0 && Math.abs(nums.get(p1) - target) <= Math.abs(nums.get(p2) - target)){
-//                resultList.add(0, nums.get(p1));
-//                p1--;
-//            } else {
-//                resultList.add(nums.get(p2));
-//                p2++;
-//            }
-//        }
+        p1 = targetPosition - 1;
+        p2 = targetPosition;
+
+        while(resultList.size() < count){
+            if(p1 >=0 && Math.abs(nums.get(p1) - target) <= Math.abs(nums.get(p2) - target)){
+                resultList.add(0, nums.get(p1));
+                p1--;
+            } else {
+                resultList.add(nums.get(p2));
+                p2++;
+            }
+        }
 
         System.out.println("finish");
     }
