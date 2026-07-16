@@ -75,8 +75,13 @@ public class task6 {
         for (int p = 0; p < nums.size(); p++) {
             currentSum = currentSum + nums.get(p);
             prefixMap.putIfAbsent(currentSum, p);
+        }
 
-            if (prefixMap.containsKey(currentSum - targetSum)) {
+        currentSum = 0;
+        for (int p = 0; p < nums.size(); p++) {
+            currentSum = currentSum + nums.get(p);
+            int key = currentSum - targetSum;
+            if (prefixMap.containsKey(key)) {
                 resultIndex = p;
                 break;
             }
