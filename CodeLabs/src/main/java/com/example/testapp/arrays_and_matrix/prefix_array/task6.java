@@ -1,4 +1,4 @@
-package com.example.testapp.arrays_and_matrix.capacity_arrays;
+package com.example.testapp.arrays_and_matrix.prefix_array;
 
 import java.util.Arrays;
 import java.util.HashMap;
