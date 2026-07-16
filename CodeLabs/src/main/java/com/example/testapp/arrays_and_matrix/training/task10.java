@@ -1,4 +1,4 @@
-package com.example.testapp.arrays_and_matrix.good_and_simple.second;
+package com.example.testapp.arrays_and_matrix.training;
 
 import java.util.ArrayList;
 import java.util.Arrays;
