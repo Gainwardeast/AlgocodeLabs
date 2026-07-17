@@ -29,10 +29,10 @@ public class task5 {
      * Объяснение: 4 > 2, поэтому берем [2,3,3], а не [3,3,4]
      */
     public static void main(String[] args) {
-        List<Integer> before = Arrays.asList(2,3,3,4,5,6,7);
+        List<Integer> before = Arrays.asList(1,3,5,6,8,9);
         System.out.println(before);
 
-        makeTask(before, 3, 3);
+        makeTask(before, 2, 3);
     }
 
     private static void makeTask(List<Integer> nums, int target, int count) {
