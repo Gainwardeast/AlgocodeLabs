@@ -59,16 +59,18 @@ class Task16 {
     static boolean isAnagram(String targetSubstring, String anagram) {
         int[] charsCount = new int[26];
         for(Character character : targetSubstring.toCharArray()){
-            charsCount[character.charValue() - 'a']++;
+            charsCount[character - 'a']++;
         }
 
         for(Character character : anagram.toCharArray()){
-            charsCount[character.charValue() - 'a']--;
+            charsCount[character - 'a']--;
         }
-        int result = 0;
+        int diffsCount = 0;
         for(int value : charsCount){
-            result += value;
+            if(value != 0){
+                diffsCount++;
+            }
         }
-        return result == 0;
+        return diffsCount == 0;
     }
 }
