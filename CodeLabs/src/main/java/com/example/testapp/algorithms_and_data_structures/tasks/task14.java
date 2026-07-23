@@ -1,9 +1,7 @@
 package com.example.testapp.algorithms_and_data_structures.tasks;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 
 class Scratch3 {
     public static void main(String[] args) {
