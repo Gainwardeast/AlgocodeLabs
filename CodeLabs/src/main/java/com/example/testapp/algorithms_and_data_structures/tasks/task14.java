@@ -2,10 +2,9 @@ package com.example.testapp.algorithms_and_data_structures.tasks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-class Scratch3 {
+class task14_1 {
 
     /**
      * Декартово произведение
@@ -40,23 +39,46 @@ class Scratch3 {
 
     static void makeTask(List<List<Integer>> inputNums) {
         List<List<Integer>> result = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        backtrack(0, inputNums, current, result);
+
+        List<Integer> beforeArray = new ArrayList<>();
+        backtrack(result, inputNums, beforeArray, 0);
+
+        System.out.println("finish");
     }
 
+    /*
+     *
+     * Arrays.asList(1, 2),
+     * Arrays.asList(3, 4)
+     *
+     * index = 0 -> currentArray = 1, 2 ; current = []
+     * 1 -> current
+     *       index = 1 -> currentArray = 3, 4 ; current = [1]
+     *       3 -> current = [1, 3]
+     *           index = 2 - > result.add([1, 3])
+     *       current.remove(current.size() - 1); [1, 3] -> [1]
+     *       4-> current = [1, 4]
+     *           index = 2 - > result.add([1, 3])
+     *
+     *
+     *
+     * 2 -> current
+     */
 
-    static void backtrack(int index, List<List<Integer>> nums, List<Integer> current, List<List<Integer>> result) {
-
-        if (index == nums.size()) {
-            result.add(new ArrayList<>(current));
-            return;
-        }
-        List<Integer> currentArray = nums.get(index);
-        for (int i = 0; i < currentArray.size(); i++) {
-            int element = currentArray.get(i);
-            current.add(element);
-            backtrack(index + 1, nums, current, result);
-            current.remove(current.size() - 1);
+    static void backtrack(
+            List<List<Integer>> result,
+            List<List<Integer>> inputNums,
+            List<Integer> beforeArray,
+            int index) {
+        if (index >= inputNums.size()) {
+            result.add(new ArrayList<>(beforeArray));
+        } else {
+            List<Integer> afterArray = inputNums.get(index);
+            for (Integer value : afterArray) {
+                beforeArray.add(value);
+                backtrack(result, inputNums, beforeArray, index + 1);
+                beforeArray.remove(beforeArray.size() - 1);
+            }
         }
     }
 }
