@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class task14_1 {
+class Task14_1 {
 
     /**
      * Декартово произведение
@@ -41,7 +41,7 @@ class task14_1 {
         List<List<Integer>> result = new ArrayList<>();
 
         List<Integer> beforeArray = new ArrayList<>();
-        backtrack(result, inputNums, beforeArray, 0);
+        findAllPairs(result, inputNums, beforeArray, 0);
 
         System.out.println("finish");
     }
@@ -65,20 +65,22 @@ class task14_1 {
      * 2 -> current
      */
 
-    static void backtrack(
+    static void findAllPairs(
             List<List<Integer>> result,
             List<List<Integer>> inputNums,
             List<Integer> beforeArray,
             int index) {
+
         if (index >= inputNums.size()) {
             result.add(new ArrayList<>(beforeArray));
-        } else {
-            List<Integer> afterArray = inputNums.get(index);
-            for (Integer value : afterArray) {
-                beforeArray.add(value);
-                backtrack(result, inputNums, beforeArray, index + 1);
-                beforeArray.remove(beforeArray.size() - 1);
-            }
+            return;
+        }
+
+        List<Integer> targetArray = inputNums.get(index);
+        for (Integer value : targetArray) {
+            beforeArray.add(value);
+            findAllPairs(result, inputNums, beforeArray, index + 1);
+            beforeArray.remove(beforeArray.indexOf(value));
         }
     }
 }
