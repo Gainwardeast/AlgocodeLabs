@@ -1,9 +1,6 @@
 package com.example.testapp.two_pointers.second;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Task10 {
     /*
@@ -30,7 +27,7 @@ public class Task10 {
 
     public static void main(String[] args) {
         List<String> nums = new ArrayList<>();
-        nums.addAll(Arrays.asList("h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "#", "#"));
+        nums.addAll(Arrays.asList("a"," ","b"," ", " ", "c","#","#","#","#","#","#"));
         // " " -> %20
         makeTask(nums, 11);
     }
@@ -39,19 +36,22 @@ public class Task10 {
         int p1 = 0;
         int p2 = 0;
 
-        while (p2 < nums.size()) {
+        int whiteSpacesCount = 0;
+
+        while (p2 < limit) {
             if (nums.get(p1).equals(" ") && !nums.get(p2).equals(" ")) {
-                Collections.swap(nums, p1, p2);
-//                nums.add(p1, "0");
-//                nums.add(p1, "2");
-//                nums.add(p1, "%");
+                whiteSpacesCount++;
+                nums.add(" ");
+                nums.remove(p1);
+                nums.addAll(p1, Arrays.asList("%", "2", "0"));
             }
             if (!nums.get(p1).equals(" ")) {
                 p1++;
             }
             p2++;
+            System.out.println(nums.toString());
         }
-        List<String> result = nums.subList(0, limit);
-        System.out.println("finish");
+
+        System.out.println("finish " + nums.subList(0, nums.size() - whiteSpacesCount*3));
     }
 }
